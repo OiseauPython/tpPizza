@@ -1,0 +1,45 @@
+<ion-header>
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button ></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ nom }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openCart()">
+        <ion-badge *ngIf="cart.length > 0">{{ cart.length }}</ion-badge>
+        <ion-icon slot="icon-only" name="cart"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2>{{ nom }}</h2>
+
+  <img style="width:30%; height: auto;" [src]="photo" alt="Select Image"/>
+  <p>Prix : {{prix}}</p>
+  <p>Les ingrédients : {{ingredients}}</p>
+  <a routerLink="">Retour à la liste</a>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="+"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="light" (click)="addToCart(pizza)">
+        <ion-icon name="cart"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="light">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="light">
+        <ion-icon name="logo-vimeo"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="light">
+        <ion-icon name="logo-google"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

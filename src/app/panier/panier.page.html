@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Tab 2
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of selectedItems" lines="inset">
+      {{ item.count }} x {{ item.name }} - {{ item.price | currency:'eur':'symbol' }}
+      <ion-label slot="end" text-right>{{ (item.price * item.count) | currency:'eur':'symbol' }}</ion-label>
+    </ion-item>
+    <ion-item>
+      Total: <span slot="end">{{ total | currency:'USD':'symbol' }}</span>
+    </ion-item>
+  </ion-list>
+</ion-content>

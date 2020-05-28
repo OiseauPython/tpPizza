@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Administrations
+    </ion-title>
+    <ion-button routerLink="/admin-form">Nouvelle Pizza !</ion-button>
+    <ion-button class="btn btn-danger" *ngIf="authStatus" (click)="onSignOut()">Se déconnecter</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <app-single-pizza-admin *ngFor="let pizza of pizzas; let i = index"
+                     [pizzaName]="pizza.nom"
+                     [pizzaPhoto]="pizza.photo"
+                     [pizzaPrice]="pizza.prix"
+                     [pizzaIngredients]="pizza.ingredients"
+                     [index]="i"
+                     [id]="pizza.id"></app-single-pizza-admin>
+</ion-content>

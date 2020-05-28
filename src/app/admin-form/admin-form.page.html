@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Formulaire de modification de Pizza</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="col-sm-8 col-sm-offset-2">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <ion-input type="text" id="nom" class="form-control" formControlName="nom"></ion-input>
+      </div>
+      <div class="form-group">
+        <label for="prix">Prix</label>
+        <ion-input type="text" id="prix" class="form-control" formControlName="prix"></ion-input>
+      </div>
+      <div class="form-group">
+        <label for="ingredients">Ingredients</label>
+        <ion-input type="text" id="ingredients" class="form-control" formControlName="ingredients"></ion-input>
+        <!--<select id="ingredients" class="form-control" formControlName="drinkPreference">
+          <option value="jus d\'orange">Jus d'orange</option>
+          <option value="jus de mangue">Jus de mangue</option>
+        </select>-->
+      </div>
+      <div class="form-group">
+        <label for="photo">Photo (base64)</label>
+        <ion-input type="text" id="photo" class="form-control" formControlName="photo"></ion-input>
+      </div>
+
+      <div class="ion-padding">
+        <ion-button expand="block" type="submit" class="ion-no-margin">Soumettre</ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>
