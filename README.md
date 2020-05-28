@@ -1,19 +1,11 @@
 # tpPizza
 
-- CI:
-    - Cache :white_check_mark:
-    - Build :white_check_mark:
-    - Units Tests :white_check_mark:
-    
-    
-    webmobile
-
-1. Liste des pizza✅
-* Photo ✅
-* Nom✅
-* Prix✅
-* Bouton ajout dans le panier✅
-* Au clique sur la pizza (tout champs confondu) la page détail s'affiche✅
+- 1. Liste des pizza
+    - Photo ✅
+    - Nom ✅
+    - Prix ✅
+    - Bouton ajout dans le panier ✅
+    - Au clique sur la pizza (tout champs confondu) la page détail s'affiche ✅
 2. Détail d'une pizza✅
 * Photo✅
 * Nom✅
