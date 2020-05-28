@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {PizzaService} from "../services/pizza.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CartService} from "../services/cart.service";
+import {AlertController} from "@ionic/angular";
 
 @Component({
   selector: 'app-pizza-detail-admin',
@@ -23,7 +24,8 @@ export class PizzaDetailAdminPage implements OnInit {
   constructor(private pizzaService: PizzaService,
               private route: ActivatedRoute,
               private router: Router,
-              private cartService: CartService) {}
+              private cartService: CartService,
+              public alertController: AlertController) {}
 
   ngOnInit() {
     const id = this.route.snapshot.params['id'];
@@ -36,8 +38,35 @@ export class PizzaDetailAdminPage implements OnInit {
     this.cart = this.cartService.getCart();
   }
 
+  async showConfirm() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Vous êtes vraiment certain ?',
+      message: 'Message <strong>text</strong>!!!',
+      buttons: [
+        {
+          text: 'Euh... Boaf',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Osef vas-y',
+          handler: () => {
+            console.log('Confirm Okay');
+            this.deletePizza(this.id);
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
   deletePizza(id) {
     this.pizzaService.deletePizza(id);
+    this.pizzaService.getPizza();
     console.log("pizza deleted");
   }
 
